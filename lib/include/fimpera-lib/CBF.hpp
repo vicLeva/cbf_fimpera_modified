@@ -4,7 +4,6 @@
 #include <string>
 #include <tuple>
 #include <vector>
-#include <stdint.h>
 /**
     @file ex_lib.hpp
 */
@@ -12,6 +11,7 @@
 namespace countingBF {
 class CBF {
    private:
+    int nbinserted;
     std::vector<bool> _bits;  // bits used by the counting bloom filter
     uint64_t _nbBitsPerCell;
     uint64_t _nbCells;

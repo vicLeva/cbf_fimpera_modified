@@ -6,6 +6,20 @@
 [![License](http://img.shields.io/:license-affero-blue.svg)](http://www.gnu.org/licenses/agpl-3.0.en.html)
 
 
+## BQF paper experiment note
+
+preprocessing data step : (count 19-mers with KMC, see [wiki](https://github.com/vicLeva/bqf/wiki/Experiments-details-and-protocol-for-BQF-paper-results))
+
+`cbf_fimpera_modified/app/src/index.cpp` (main executable) has been modified so that when compiled the main tool `fimpera_index` runs experiments on sea-water34M dataset (first available in [wiki](https://github.com/vicLeva/bqf/wiki/Experiments-details-and-protocol-for-BQF-paper-results), dataset has to be downloaded first).
+
+then from `build/` (`mkdir build` if absent)
+```bash
+make
+./app/fimpera_index
+```
+
+## original README
+
 `fimpera` is a simple strategy for reducing false positive calls from any Approximate Membership Query data structure (AMQ) that supports abundance queries. <!-- With no drawbacks (in particular no false positive), queries are two times faster with two orders of magnitudes less false positive calls. (TODO: check this statement) --> 
 
 <!-- TODO image -->

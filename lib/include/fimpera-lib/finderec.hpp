@@ -74,10 +74,8 @@ inline std::vector<int> sliding_window_minimum(std::vector<int>& ARR, uint64_t w
 
 template <typename T>
 inline int doQuery(const T& amqc, const std::string& kmer, bool canonical) {
-    if (canonical) {  // TODO test
-        return amqc.get(toCanonical(kmer));
-    }
-    return amqc.get(kmer);
+    //std::cout << kmer << " --- " << toCanonical(kmer) << std::endl;
+    return amqc.get(toCanonical(kmer));
 }
 
 inline bool isInvalid(const std::string& sequence) {

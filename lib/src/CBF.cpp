@@ -48,6 +48,7 @@ std::tuple<std::vector<uint64_t>, uint64_t> CBF::get(const std::vector<uint64_t>
 
 CBF::CBF(uint64_t nbBits, uint64_t nbBitsPerCell, uint64_t nbHashFunctions) : _bits(nbBits, false), _nbBitsPerCell(nbBitsPerCell), _nbHashFunctions(nbHashFunctions) {
     assert(nbBits > 0);
+    nbinserted = 0;
     _mask = pow(2, _nbBitsPerCell - 1);
     _nbCells = nbBits / _nbBitsPerCell;
     _limitValueInBucket = pow(2, _nbBitsPerCell) - 1;
@@ -89,6 +90,12 @@ CBF::CBF(std::ifstream& fin) {
 
 // store the filter in the filter and returns the value stored
 uint64_t CBF::set(const std::string& kmer, uint64_t occurrence) {
+    //nbinserted ++; 
+    //if (nbinserted % 1000000 == 0) {
+	//std::cout << nbinserted/1000000 << " / 1400 " << std::endl;
+        //std::cout << kmer << "  " << occurrence << std::endl;
+    //}
+    //std::cout << kmer << "  " << occurrence << std::endl;
     // can't set values higher because of space limit
     if (occurrence > _limitValueInBucket) {
         occurrence = _limitValueInBucket;
